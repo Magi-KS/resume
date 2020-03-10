@@ -8,23 +8,29 @@ module.exports = {
       {
         test: /\.html$/i,
         use: [
-        'file-loader?name=[name].[ext]',
+          {
+            loader: 'file-loader',
+            options: {
+              esModule: false,
+              name: '[name].[ext]'
+            }
+          },
         'extract-loader',
           {
             loader: 'html-loader',
             options: {
-              attrs: ['script:src', 'link:href']
+              attrs: ['link:href', 'img:src']
             }
           }
         ],
       },
       {
-        test: /\.js$/,
+        test: /\.(png|jpe?g|gif)$/,
         use: [
           {
             loader: "file-loader",
             options: {
-              esModule: true
+              esModule: false
             }
           }
         ]
@@ -40,6 +46,24 @@ module.exports = {
           },
           {
             loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.js/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              esModule: false,
+              name: '[name].[ext]'
+            }
+          },
+          {
+            loader: "babel-loader",
             options: {
               sourceMap: true
             }

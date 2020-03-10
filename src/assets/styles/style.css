@@ -1,6 +1,29 @@
-@import '~paper-css/paper';
-@import '~bulma';
+@use '~bulma/bulma';
+@use '~paper-css/paper';
 
-.test {
-  display: none;
+.the-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.page-footer {
+  position: absolute;
+  bottom: 0;
+  width: inherit;
+  left: 0;
+  padding: inherit;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.footer-left {
+  @extend .has-text-left;
+}
+.footer-centered {
+  @extend .has-text-centered;
+}
+.footer-right {
+  @extend .has-text-right;
 }
