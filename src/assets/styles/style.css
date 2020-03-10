@@ -5,6 +5,15 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
+
+  &.col1{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.style-list {
+  list-style: disc;
+  list-style-position: inside;
 }
 
 .page-footer {
