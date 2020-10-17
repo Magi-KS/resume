@@ -2,7 +2,9 @@ const path = require('path');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
-  entry: './resume.html',
+  entry: {
+    resume: { import: './resume.html' }
+  },
   module: {
     rules: [
       {
@@ -15,7 +17,20 @@ module.exports = {
               name: '[name].[ext]'
             }
           },
-        'extract-loader',
+          // {
+          //   loader: 'inspect-loader',
+          //   options: {
+          //     callback(inspect) {
+          //       console.log(inspect);
+          //     }
+          //   }
+          // },
+          {
+            loader: "extract-loader",
+            options: {
+              publicPath: "",
+            }
+          },
           {
             loader: 'html-loader',
             options: {
