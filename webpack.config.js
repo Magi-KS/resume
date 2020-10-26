@@ -1,10 +1,6 @@
 const path = require('path');
 
 module.exports = {
-  context: path.resolve(__dirname, 'src'),
-  entry: {
-    resume: { import: './resume.html' }
-  },
   module: {
     rules: [
       {
@@ -34,7 +30,20 @@ module.exports = {
           {
             loader: 'html-loader',
             options: {
-              attrs: ['link:href', 'img:src']
+              attributes: {
+                list: [
+                  {
+                    tag: 'img',
+                    type: 'src',
+                    attribute: 'src'
+                  },
+                  {
+                    tag: 'link',
+                    type: 'src',
+                    attribute: 'href'
+                  },
+                ]
+              }
             }
           }
         ],
@@ -70,13 +79,13 @@ module.exports = {
       {
         test: /\.js/,
         use: [
-          {
-            loader: "file-loader",
-            options: {
-              esModule: false,
-              name: '[name].[ext]'
-            }
-          },
+          // {
+          //   loader: "file-loader",
+          //   options: {
+          //     esModule: false,
+          //     name: '[name].[ext]'
+          //   }
+          // },
           {
             loader: "babel-loader",
             options: {
