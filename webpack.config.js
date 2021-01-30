@@ -56,6 +56,12 @@ module.exports = {
             options: {
               esModule: false
             }
+          },
+          {
+            loader: "webpack-image-resize-loader",
+            options: {
+              width: 64,
+            }
           }
         ]
       },

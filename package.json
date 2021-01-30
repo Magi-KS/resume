@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "inspect-loader": "^1.0.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-image-resize-loader": "^4.0.0"
   }
 }
